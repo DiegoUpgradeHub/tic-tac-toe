@@ -1,0 +1,57 @@
+<div class="boardBox">
+
+  <div class="topBox m-3">
+    <h1 class="mt-5">Juego tres en raya.</h1>
+    <div class="btn-group">
+      <button class="btn btn-secondary m-1" (click)="newGame()">Partida nueva</button>
+      <button class="btn btn-secondary m-1" (click)="changeNames()">Cambiar nombres</button>
+      <button class="btn btn-secondary m-1" (click)="resetCounter()">Resetear contador</button>
+    </div>
+    <div [hidden]="gameStarted" class="nameFormBox">
+      <form [formGroup]="formName1" (ngSubmit)="setName1()" class="form nameForm input-group my-3">
+        <input type="text" class="form-control" formControlName="name" placeholder="Escribe el nombre" id="player1" name="player1" aria-label="namePlayer1" aria-describedby="namePlayer1">
+        <button class="input-group-text" id="namePlayer1" type="submit">Cambiar</button>
+      </form>
+      <form [formGroup]="formName2" (ngSubmit)="setName2()" class="form nameForm input-group my-3">
+        <input type="text" class="form-control" formControlName="name" placeholder="Escribe el nombre" id="player2" name="player2" aria-label="namePlayer2" aria-describedby="namePlayer2">
+        <button class="input-group-text" id="namePlayer2" type="submit">Cambiar</button>
+      </form>
+    </div>
+
+    <div class="counterBox">
+      <div class="nameSymbolCount">
+        <div class="btn btnX symbolProfile mx-1">X</div>
+        <div class="nameAndPoints">
+          <p class="my-0"><small>Nombre: </small><strong>{{this.player1}}</strong></p>
+          <p class="my-0"><small>Puntos: </small><strong>{{this.points1}}</strong></p>
+        </div>
+      </div>
+      <div class="nameSymbolCount">
+        <div class="btn btnO symbolProfile mx-1">O</div>
+        <div class="nameAndPoints">
+          <p class="my-0"><small>Nombre: </small><strong>{{this.player2}}</strong></p>
+          <p class="my-0"><small>Puntos: </small><strong>{{this.points2}}</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <h3 *ngIf="winner == null">Turno de: {{ player }}</h3>
+    <div id="liveAlertPlaceholder">
+      <h2 *ngIf="winner == 'X'">
+        ¡{{ this.player1 }} ha ganado la partida!
+      </h2>
+      <h2 *ngIf="winner == 'O'">
+        ¡{{ this.player2 }} ha ganado la partida!
+      </h2>
+    </div>
+
+  </div>
+
+  <div class="squaresBox">
+    <app-square *ngFor="let val of squares; let i = index"
+    [value]="val"
+    (click)="makeMove(i)">
+    </app-square>
+  </div>
+</div>
+

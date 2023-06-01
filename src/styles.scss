@@ -1,0 +1,23 @@
+@import "./app/styles/colors";
+// body {
+//   background: $dark;
+//   background-image: $background1;
+//   color: $light;
+// }
+
+.light {
+  background: $light;
+  background-image: $background2;
+  color: $dark;
+}
+
+.dark {
+  background: $dark;
+  background-image: $background1;
+  color: $light;
+}
+
+a {
+  text-decoration: none;
+  color: $dark;
+}

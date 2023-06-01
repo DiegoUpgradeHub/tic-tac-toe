@@ -1,0 +1,69 @@
+@import "../styles/colors";
+
+@media (min-width: 600px) {
+  .squareBox {
+    border: none;
+    color: $light;
+    font-size: 8rem;
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .squareBox {
+    border: none;
+    color: $light;
+    font-size: 4rem;
+    width: 110px;
+    height: 110px;
+  }
+}
+
+@media (max-width: 329px) {
+  .squareBox {
+    border: none;
+    color: $light;
+    font-size: 2rem;
+    width: 66px;
+    height: 66px;
+  }
+}
+
+.squareEmptyDark {
+  background-image: $squareEmpty1;
+  border: none;
+  border-radius: 0px;
+}
+
+.squareXDark {
+  background-image: $squareX1;
+  border: none;
+  border-radius: 0px;
+}
+
+.squareODark {
+  background-image: $squareO1;
+  border: none;
+  border-radius: 0px;
+}
+
+.squareEmptyLight {
+  background-image: $squareEmpty2;
+  border: none;
+  border-radius: 0px;
+}
+
+.squareXLight {
+  background-image: $squareX2;
+  border: none;
+  border-radius: 0px;
+}
+
+.squareOLight {
+  background-image: $squareO2;
+  border: none;
+  border-radius: 0px;
+}
+
+

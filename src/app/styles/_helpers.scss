@@ -1,0 +1,18 @@
+@import './_colors';
+// SCSS Mixins
+@mixin displayFlex($flow, $justify, $align) {
+  display: flex;
+  flex-flow: $flow;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin dark () {
+  color: $secondary;
+  background: $primary;
+}
+
+@mixin light () {
+  color: $primary;
+  background: $secondary;
+}
