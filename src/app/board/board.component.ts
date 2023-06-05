@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { AppComponent } from '../app.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-board',
@@ -17,12 +19,15 @@ export class BoardComponent {
   public points2: number = 0;
   public currentPlayer: string = '';
   public gameStarted: boolean = false;
+  public darkTheme: boolean = false;
 
   formName1!: FormGroup;
   formName2!: FormGroup;
 
   constructor(
+    public translateService:TranslateService,
     public fb: FormBuilder,
+    public appComponent: AppComponent
   ) {
     this.formName1 = this.fb.group({
       name:[this.player1]
@@ -34,6 +39,7 @@ export class BoardComponent {
 
   ngOnInit() {
     this.newGame();
+    this.detectBrowserLanguage();
   }
 
   newGame() {
@@ -75,6 +81,42 @@ export class BoardComponent {
 
   changeNames(): void {
     this.gameStarted = !this.gameStarted;
+  }
+
+  setEnglish(){
+    this.appComponent.setAppLanguageEnglish();
+  }
+
+  setSpanish(){
+    this.appComponent.setAppLanguageSpanish();
+  }
+
+  detectBrowserLanguage(){
+    const browserLang = this.translateService.getBrowserLang();
+    if (browserLang === 'es') {
+      }
+  }
+
+  darkThemeToggle() {
+    let bodyClass = document.getElementsByClassName("bodyClass");
+
+    //Switcher del estado
+    this.darkTheme = !this.darkTheme;
+
+    //Condicionales
+    if (this.darkTheme === true) {
+      document.body.classList.add("dark");
+      // for(var i = 0; i < bodyClass.length; i++) {
+      //   bodyClass[i].classList.add("dark-mode");
+      // }
+    } else {
+      document.body.classList.remove("dark");
+      document.body.classList.add("light");
+      // for(var i = 0; i < bodyClass.length; i++) {
+      //   bodyClass[i].classList.remove("dark-mode");
+      //   bodyClass[i].classList.add("light-mode");
+      // }
+    }
   }
 
   resetCounter(): void {

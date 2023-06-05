@@ -8,6 +8,20 @@
 @media (min-width: 600px) {
 }
 
+.languagesAndTheme {
+  @include displayFlex(row wrap, space-between, center);
+  .flags {
+    @include displayFlex(row wrap, space-between, center);
+    .flag-icon {
+      max-width: 35px;
+      margin: 0 10px;
+    }
+  }
+  .themes {
+    @include displayFlex(row wrap, space-between, center);
+  }
+}
+
 .nameFormBox {
   @include displayFlex(row wrap, space-between, center);
 }
