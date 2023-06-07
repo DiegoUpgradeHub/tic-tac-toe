@@ -2,20 +2,9 @@
 
   <div class="topBox m-3">
     <h1 class="mt-5">{{'Juego tres en raya' | translate }}</h1>
-    <div class="languagesAndTheme">
-      <div class="flags">
-        <img class="flag-icon" src="../../assets/images/united-kingdom-uk-svgrepo-com.svg" (click)="setEnglish()">
-        <img class="flag-icon" src="../../assets/images/spain-svgrepo-com.svg" (click)="setSpanish()">
-      </div>
-      <div class="themes">
-        <div class="form-check form-switch toggle toggleTheme">
-          <input  (click)="darkThemeToggle()" class="form-check-input toggleThemeInput" type="checkbox" role="switch" id="themeSwitch">
-          <label class="form-check-label toggleThemeLabel" for="themeSwitch">
-            <i *ngIf="!this.darkTheme" class="bi bi-moon-fill"> {{'Modo oscuro' | translate }}</i>
-            <i *ngIf="this.darkTheme" class="bi bi-brightness-high-fill"> {{'Modo claro' | translate }}</i>
-          </label>
-        </div>
-      </div>
+    <div class="flags">
+      <img class="flag-icon" src="../../assets/images/united-kingdom-uk-svgrepo-com.svg" (click)="setEnglish()">
+      <img class="flag-icon" src="../../assets/images/spain-svgrepo-com.svg" (click)="setSpanish()">
     </div>
     <div class="btn-group">
       <button class="btn btn-secondary m-1" (click)="newGame()">{{'Partida nueva' | translate}}</button>
@@ -35,14 +24,14 @@
 
     <div class="counterBox">
       <div class="nameSymbolCount">
-        <div class="btn btnX symbolProfile mx-1">X</div>
+        <div class="btn btnXdark symbolProfile btnX mx-1">X</div>
         <div class="nameAndPoints">
           <p class="my-0"><small>{{'Nombre' | translate }}: </small><strong>{{this.player1}}</strong></p>
           <p class="my-0"><small>{{'Puntos' | translate }}: </small><strong>{{this.points1}}</strong></p>
         </div>
       </div>
       <div class="nameSymbolCount">
-        <div class="btn btnO symbolProfile mx-1">O</div>
+        <div class="btn btnOdark symbolProfile btnO mx-1">O</div>
         <div class="nameAndPoints">
           <p class="my-0"><small>{{'Nombre' | translate }}: </small><strong>{{this.player2}}</strong></p>
           <p class="my-0"><small>{{'Puntos' | translate }}: </small><strong>{{this.points2}}</strong></p>
